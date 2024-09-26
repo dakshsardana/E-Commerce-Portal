@@ -4,7 +4,7 @@ import {ProductsContext} from "./ProductsContext";
 export default function Product({_id,name,price,description,picture}) {
   const {setSelectedProducts} = useContext(ProductsContext);
   function addProduct() {
-    setSelectedProducts(prev => [...prev,_id]);
+    setSelectedProducts(prev => Array.isArray(prev) ? [...prev, _id] : [_id]);
   }
   return (
     <div className="w-52">
@@ -16,7 +16,7 @@ export default function Product({_id,name,price,description,picture}) {
       </div>
       <p className="text-sm mt-1 leading-4 text-gray-500">{description}</p>
       <div className="flex mt-1">
-        <div className="text-2xl font-bold grow">Rs{price}</div>
+        <div className="text-2xl font-bold grow">${price}</div>
         <button onClick={addProduct} className="bg-emerald-400 text-white py-1 px-3 rounded-xl">+</button>
       </div>
     </div>

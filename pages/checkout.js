@@ -29,7 +29,7 @@ export default function CheckoutPage() {
     }
   }
 
-  const deliveryPrice = 5;
+  const deliveryPrice = 500;
   let subtotal = 0;
   if (selectedProducts?.length) {
     for (let id of selectedProducts) {
